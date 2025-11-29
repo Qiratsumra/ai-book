@@ -5,7 +5,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
-import Chatbot from '@site/src/components/Chatbot'; // Import the Chatbot component
 
 import styles from './index.module.css';
 
@@ -32,7 +31,6 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <Chatbot /> {/* Render the Chatbot component */}
       </main>
     </Layout>
   );
