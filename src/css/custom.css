@@ -1,0 +1,155 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #93c5fd;
+  
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
+  
+  /* Custom gradient background */
+  --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  /* Modern shadows */
+  --modern-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Border radius */
+  --modern-radius: 12px;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-darker: #2563eb;
+  --ifm-color-primary-darkest: #1d4ed8;
+  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-lighter: #bfdbfe;
+  --ifm-color-primary-lightest: #dbeafe;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.2);
+  
+  /* Dark mode gradient */
+  --gradient-bg: linear-gradient(135deg, #4f46e5 0%, #7e22ce 100%);
+}
+
+/* Modern header styling */
+.hero {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero__subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Modern cards */
+.card {
+  border-radius: var(--modern-radius);
+  box-shadow: var(--modern-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern navbar */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--modern-shadow);
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Modern buttons */
+.button {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Code blocks styling */
+.codeBlockContainer {
+  border-radius: var(--modern-radius);
+  box-shadow: var(--modern-shadow);
+}
+
+/* Table styling */
+table {
+  border-radius: var(--modern-radius);
+  overflow: hidden;
+  box-shadow: var(--modern-shadow);
+}
+
+/* Sidebar styling */
+.menu {
+  border-radius: var(--modern-radius);
+}
+
+/* Footer styling */
+.footer {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media (max-width: 996px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Focus states for accessibility */
+.button:focus,
+.menu__link:focus,
+.navbar__link:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
