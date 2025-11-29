@@ -1,166 +1,205 @@
-/* styles.module.css */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  color: white;
-}
-
-.heroTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.heroSubtitle {
-  font-size: 1.5rem;
-  opacity: 0.9;
-}
-
-.main {
-  padding: 2rem 0;
-}
-
-.section {
-  margin-bottom: 4rem;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #1e40af 0%, #7e22ce 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.modulesContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.moduleCard {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
-}
-
-.moduleCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme='dark'] .moduleCard {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ... other styles ... */
-
+/* Modern Animated Styles */
 
 .features {
   display: flex;
   align-items: center;
-  padding: 4rem 0;
+  padding: 6rem 0;
   width: 100%;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
 }
 
 [data-theme='dark'] .features {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+[data-theme='dark'] .features::before {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
+  position: relative;
 }
 
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+.mainTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: slideUpFade 0.8s ease-out 0.2s forwards;
+}
+
+.titleGradient {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 1rem;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
 }
 
-.sectionSubtitle {
-  font-size: 1.2rem;
+.tagline {
+  font-size: 1.4rem;
   color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: slideUpFade 0.8s ease-out 0.4s forwards;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
-[data-theme='dark'] .sectionSubtitle {
+[data-theme='dark'] .tagline {
   color: #94a3b8;
 }
 
+.overview {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.overview p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #475569;
+  opacity: 0;
+  animation: slideUpFade 0.8s ease-out 0.6s forwards;
+}
+
+[data-theme='dark'] .overview p {
+  color: #cbd5e1;
+}
+
+.featuresRow {
+  opacity: 0;
+  animation: slideUpFade 0.8s ease-out 0.8s forwards;
+}
+
+/* Feature Cards */
 .featureCard {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 2.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
   text-align: center;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 
-    0 10px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 0 rgba(37, 99, 235, 0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  transform: translateY(0);
 }
 
 .featureCard::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.featureCard:hover::before {
+  left: 100%;
 }
 
 .featureCard:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(37, 99, 235, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 [data-theme='dark'] .featureCard {
   background: rgba(30, 41, 59, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+[data-theme='dark'] .featureCard:hover {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(37, 99, 235, 0.4);
+}
+
+/* Icon Styles */
 .featureIconContainer {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   position: relative;
+  display: inline-block;
+}
+
+.iconWrapper {
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glowEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.featureCard:hover .glowEffect {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .featureSvg {
-  height: 120px;
-  width: 120px;
-  fill: url(#gradient);
-  filter: drop-shadow(0 8px 16px rgba(37, 99, 235, 0.2));
-  transition: all 0.3s ease;
+  height: 100px;
+  width: 100px;
+  fill: url(#icon-gradient);
+  filter: drop-shadow(0 8px 16px rgba(37, 99, 235, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .featureCard:hover .featureSvg {
-  transform: scale(1.1);
-  filter: drop-shadow(0 12px 24px rgba(37, 99, 235, 0.3));
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 12px 24px rgba(37, 99, 235, 0.4));
 }
 
+/* Content Styles */
 .featureContent {
   position: relative;
   z-index: 2;
@@ -169,21 +208,60 @@
 .featureTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.titleText {
   background: linear-gradient(135deg, #1e40af 0%, #7e22ce 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.titleText::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #1e40af 0%, #7e22ce 100%);
+  transition: width 0.4s ease;
+}
+
+.featureCard:hover .titleText::after {
+  width: 100%;
 }
 
 .featureDescription {
   color: #475569;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  line-height: 1.7;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 [data-theme='dark'] .featureDescription {
   color: #cbd5e1;
+}
+
+/* Hover Effect Element */
+.hoverEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.featureCard:hover .hoverEffect {
+  opacity: 1;
 }
 
 /* SVG Gradient Definitions */
@@ -193,34 +271,93 @@
   height: 0;
 }
 
+/* Animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Staggered animation for feature cards */
+.featuresRow .col:nth-child(1) .featureCard {
+  animation-delay: 0.1s;
+}
+
+.featuresRow .col:nth-child(2) .featureCard {
+  animation-delay: 0.2s;
+}
+
+.featuresRow .col:nth-child(3) .featureCard {
+  animation-delay: 0.3s;
+}
+
+.featureCard {
+  opacity: 0;
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+
 /* Responsive Design */
 @media (max-width: 996px) {
   .features {
-    padding: 3rem 0;
+    padding: 4rem 0;
   }
   
-  .sectionTitle {
-    font-size: 2rem;
+  .mainTitle {
+    font-size: 2.5rem;
   }
   
-  .sectionSubtitle {
-    font-size: 1.1rem;
-    padding: 0 1rem;
+  .tagline {
+    font-size: 1.2rem;
   }
   
   .featureCard {
     margin-bottom: 2rem;
-    padding: 2rem 1rem;
+    padding: 2rem 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .sectionTitle {
-    font-size: 1.8rem;
+  .mainTitle {
+    font-size: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
   }
   
   .featureSvg {
-    height: 100px;
+    height: 80px;
+    width: 80px;
+  }
+  
+  .glowEffect {
     width: 100px;
+    height: 100px;
   }
 }

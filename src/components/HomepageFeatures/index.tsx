@@ -47,17 +47,22 @@ function Feature({title, Svg, description}: FeatureItem) {
     <div className={clsx('col col--4')}>
       <div className={styles.featureCard}>
         <div className={styles.featureIconContainer}>
-          <Svg className={styles.featureSvg} role="img" />
+          <div className={styles.iconWrapper}>
+            <Svg className={styles.featureSvg} role="img" />
+          </div>
+          <div className={styles.glowEffect}></div>
         </div>
         <div className={styles.featureContent}>
-          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+          <Heading as="h3" className={styles.featureTitle}>
+            <span className={styles.titleText}>{title}</span>
+          </Heading>
           <p className={styles.featureDescription}>{description}</p>
         </div>
+        <div className={styles.hoverEffect}></div>
       </div>
     </div>
   );
 }
-
 
 export default function HomepageFeatures(): ReactNode {
   return (
@@ -65,7 +70,9 @@ export default function HomepageFeatures(): ReactNode {
       <section className={styles.features}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <Heading as="h1" className={styles.mainTitle}>Physical AI & Humanoid Robotics</Heading>
+            <Heading as="h1" className={styles.mainTitle}>
+              <span className={styles.titleGradient}>Physical AI & Humanoid Robotics</span>
+            </Heading>
             <p className={styles.tagline}>Bridging the gap between digital intelligence and physical embodiment</p>
             <div className={styles.overview}>
               <p>
@@ -76,14 +83,29 @@ export default function HomepageFeatures(): ReactNode {
               </p>
             </div>
           </div>
-          <div className="row">
+          <div className={`row ${styles.featuresRow}`}>
             {FeatureList.map((props, idx) => (
               <Feature key={idx} {...props} />
             ))}
           </div>
         </div>
+        
+        {/* Add SVG gradient definitions */}
+        <svg width="0" height="0" className={styles.svgGradient}>
+          <defs>
+            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#2563eb" />
+              <stop offset="50%" stopColor="#7c3aed" />
+              <stop offset="100%" stopColor="#ec4899" />
+            </linearGradient>
+            <linearGradient id="title-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#2563eb" />
+              <stop offset="50%" stopColor="#7c3aed" />
+              <stop offset="100%" stopColor="#ec4899" />
+            </linearGradient>
+          </defs>
+        </svg>
       </section>
-
     </>
   );
 }
