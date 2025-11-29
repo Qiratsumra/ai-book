@@ -52,10 +52,6 @@ const config: Config = {
           label: 'Tutorial',
         },
         {
-          type: 'localeDropdown',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/qiratsumra/',
           label: 'GitHub',
           position: 'right',

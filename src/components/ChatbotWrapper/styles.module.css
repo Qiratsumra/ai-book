@@ -1,0 +1,106 @@
+.chatbotWrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: transparent; /* Added transparent background */
+}
+
+.aiIconButton {
+  background-color: rgba(0, 123, 255, 0.9); /* Added transparency */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Added smooth transitions */
+}
+
+.aiIconButton:hover {
+  background-color: rgba(0, 123, 255, 1); /* Slightly less transparent on hover */
+  transform: scale(1.05); /* Subtle hover effect */
+}
+
+.chatbotContent {
+  background-color: transparent; /* Changed to transparent */
+  border: 1px solid rgba(204, 204, 204, 0.7); /* Added transparency to border */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 350px;
+  max-height: 500px;
+  overflow-y: auto;
+  transform-origin: bottom right;
+  animation: slideIn 0.3s ease-out forwards;
+  backdrop-filter: blur(10px); /* Optional: adds glass morphism effect */
+}
+
+/* Optional: Add a subtle background for better readability while maintaining transparency */
+.chatbotContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1); /* Very subtle overlay */
+  border-radius: 8px;
+  z-index: -1; /* Place behind the content */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Optional: Add a close animation */
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.chatbotContent.closing {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .chatbotWrapper {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    align-items: center;
+  }
+  
+  .chatbotContent {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .aiIconButton {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}

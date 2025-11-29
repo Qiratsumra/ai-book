@@ -31,6 +31,9 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <div className="container">
+          {/* RAGChatbot was here, now global */}
+        </div>
       </main>
     </Layout>
   );
